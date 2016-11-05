@@ -6,8 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,16 +29,37 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cU1-go-8lN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEG-ah-uhW">
+                                        <rect key="frame" x="87" y="22" width="202" height="35"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nni-UI-dDD">
+                                        <rect key="frame" x="341" y="26" width="26" height="26"/>
+                                        <state key="normal" title="Button" image="music"/>
+                                        <connections>
+                                            <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lHp-wd-sm5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="xG1-FN-ti7"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="zOy-Tw-TXt"/>
+                                    <constraint firstItem="Nni-UI-dDD" firstAttribute="top" secondItem="cU1-go-8lN" secondAttribute="top" constant="26" id="4ZA-aF-Bzh"/>
+                                    <constraint firstItem="Nni-UI-dDD" firstAttribute="trailing" secondItem="cU1-go-8lN" secondAttribute="trailingMargin" id="8lK-lR-5Uu"/>
+                                    <constraint firstItem="Nni-UI-dDD" firstAttribute="leading" secondItem="gEG-ah-uhW" secondAttribute="trailing" constant="52" id="Na6-wN-rKN"/>
+                                    <constraint firstItem="gEG-ah-uhW" firstAttribute="centerX" secondItem="cU1-go-8lN" secondAttribute="centerX" id="NdK-pr-ZZA"/>
+                                    <constraint firstItem="gEG-ah-uhW" firstAttribute="leading" secondItem="cU1-go-8lN" secondAttribute="leading" constant="87" id="Vl0-2h-wCP"/>
+                                    <constraint firstItem="gEG-ah-uhW" firstAttribute="bottom" secondItem="cU1-go-8lN" secondAttribute="bottomMargin" id="b0c-MZ-FlZ"/>
+                                    <constraint firstItem="gEG-ah-uhW" firstAttribute="top" secondItem="cU1-go-8lN" secondAttribute="top" constant="22" id="eRb-mI-17S"/>
+                                    <constraint firstItem="gEG-ah-uhW" firstAttribute="centerY" secondItem="Nni-UI-dDD" secondAttribute="centerY" id="szm-H9-hxH"/>
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="Search Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="AvQ-5D-gtt">
                                 <rect key="frame" x="0.0" y="65" width="375" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="yfn-LU-7GM"/>
+                                    <constraint firstAttribute="height" constant="44" id="3Ra-fH-sxB"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
@@ -42,6 +69,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o2F-eR-XsB">
                                 <rect key="frame" x="20" y="129" width="335" height="518"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="518" id="bvc-ub-XLh"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ha6-5X-QGT">
                                     <size key="itemSize" width="105" height="105"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -91,20 +121,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="o2F-eR-XsB" firstAttribute="top" secondItem="AvQ-5D-gtt" secondAttribute="bottom" constant="20" id="1Jx-wv-Odk"/>
-                            <constraint firstAttribute="trailing" secondItem="AvQ-5D-gtt" secondAttribute="trailing" id="3BP-Hl-Ov1"/>
-                            <constraint firstAttribute="trailing" secondItem="o2F-eR-XsB" secondAttribute="trailing" constant="20" id="3qO-4W-txp"/>
-                            <constraint firstAttribute="trailing" secondItem="cU1-go-8lN" secondAttribute="trailing" id="4XF-Ip-YNj"/>
-                            <constraint firstItem="o2F-eR-XsB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="J5S-VD-5UO"/>
-                            <constraint firstAttribute="trailing" secondItem="LTf-fQ-c7z" secondAttribute="trailing" id="VGp-2E-h1q"/>
-                            <constraint firstItem="AvQ-5D-gtt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Y7V-ZS-Kup"/>
-                            <constraint firstItem="cU1-go-8lN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YQ7-6V-66q"/>
-                            <constraint firstItem="LTf-fQ-c7z" firstAttribute="top" secondItem="AvQ-5D-gtt" secondAttribute="bottom" id="cev-92-Ylx"/>
-                            <constraint firstItem="LTf-fQ-c7z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hFO-Qs-PMM"/>
-                            <constraint firstItem="cU1-go-8lN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hPk-Ra-cXU"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="o2F-eR-XsB" secondAttribute="bottom" constant="20" id="vol-oR-rLW"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LTf-fQ-c7z" secondAttribute="bottom" id="wjL-8I-nzI"/>
-                            <constraint firstItem="AvQ-5D-gtt" firstAttribute="top" secondItem="cU1-go-8lN" secondAttribute="bottom" id="xQD-o1-EAj"/>
+                            <constraint firstItem="cU1-go-8lN" firstAttribute="trailing" secondItem="AvQ-5D-gtt" secondAttribute="trailing" id="3wv-Pn-iQ1"/>
+                            <constraint firstAttribute="bottom" secondItem="o2F-eR-XsB" secondAttribute="bottom" constant="20" symbolic="YES" id="6bs-dP-yZK"/>
+                            <constraint firstItem="LTf-fQ-c7z" firstAttribute="top" secondItem="AvQ-5D-gtt" secondAttribute="bottom" id="A7v-gf-mSd"/>
+                            <constraint firstItem="AvQ-5D-gtt" firstAttribute="trailing" secondItem="LTf-fQ-c7z" secondAttribute="trailing" id="CIx-zj-I9X"/>
+                            <constraint firstItem="AvQ-5D-gtt" firstAttribute="leading" secondItem="LTf-fQ-c7z" secondAttribute="leading" id="M32-Iz-cqw"/>
+                            <constraint firstItem="LTf-fQ-c7z" firstAttribute="centerY" secondItem="o2F-eR-XsB" secondAttribute="centerY" id="STo-VU-f2C"/>
+                            <constraint firstItem="o2F-eR-XsB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="Xzp-eL-tVd"/>
+                            <constraint firstItem="cU1-go-8lN" firstAttribute="leading" secondItem="AvQ-5D-gtt" secondAttribute="leading" id="dqI-EP-oIv"/>
+                            <constraint firstItem="AvQ-5D-gtt" firstAttribute="top" secondItem="cU1-go-8lN" secondAttribute="bottom" id="kb9-MG-7qn"/>
+                            <constraint firstItem="cU1-go-8lN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="llQ-AD-Q7H"/>
+                            <constraint firstItem="cU1-go-8lN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n8Q-Di-jvs"/>
+                            <constraint firstItem="LTf-fQ-c7z" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="nNn-DI-Nbu"/>
+                            <constraint firstAttribute="trailing" secondItem="cU1-go-8lN" secondAttribute="trailing" id="uKE-eV-upa"/>
+                            <constraint firstItem="LTf-fQ-c7z" firstAttribute="centerX" secondItem="o2F-eR-XsB" secondAttribute="centerX" id="wk0-ec-C9l"/>
                         </constraints>
                     </view>
                     <connections>
@@ -119,5 +149,6 @@
     <resources>
         <image name="4" width="120" height="120"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="music" width="100" height="100"/>
     </resources>
 </document>
